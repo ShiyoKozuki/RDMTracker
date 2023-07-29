@@ -191,7 +191,7 @@ local function UpdateSettings(settings)
 end
 
 local function CheckStateOnLoad()
-    for i = 0, 5 do
+    for i = 1, 5 do
         local targetIndex = AshitaCore:GetMemoryManager():GetParty():GetMemberTargetIndex(i);
         if (targetIndex ~= 0) then
             local playerName = AshitaCore:GetMemoryManager():GetParty():GetMemberName(i);
