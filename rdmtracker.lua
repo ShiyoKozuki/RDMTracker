@@ -33,13 +33,13 @@ local default_settings = T{
 local deleteDelay = 5; --How long after buff expires to delete timer
 local monitoredSpells = T{
     { SpellId = 57, BuffId = 33, BuffName = 'Haste', Duration = 180 },
-    { SpellId = 511, BuffId = 33, BuffName = 'Haste II', Duration = 180 },
+    { SpellId = 511, BuffName = 'Haste II', Duration = 180 },
     { SpellId = 107, BuffId = 116, BuffName = 'Phalanx', Duration = 120 },
     { SpellId = 109, BuffId = 43, BuffName = 'Refresh', Duration = 150 },
-    { SpellId = 473, BuffId = 43, BuffName = 'Refresh II', Duration = 150 },
-    { SpellId = 894, BuffId = 43, BuffName = 'Refresh III', Duration = 150 },
+    { SpellId = 473, BuffName = 'Refresh II', Duration = 150 },
+    { SpellId = 894, BuffName = 'Refresh III', Duration = 150 },
     { SpellId = 493, BuffId = 432, BuffName = 'Temper', Duration = 180 },
-    { SpellId = 895, BuffId = 432, BuffName = 'Temper II', Duration = 180 },
+    { SpellId = 895, BuffName = 'Temper II', Duration = 180 },
 };
 
 --State
@@ -205,6 +205,7 @@ local function CheckStateOnLoad()
         end
     end
 end
+
 local function UpdateTimers()
     local time = os.clock();
     local newTable = T{};
