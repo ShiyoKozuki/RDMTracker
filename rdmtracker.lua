@@ -32,10 +32,14 @@ local default_settings = T{
 };
 local deleteDelay = 5; --How long after buff expires to delete timer
 local monitoredSpells = T{
-    { SpellId = 57, BuffId = 33, BuffName='Haste', Duration = 180 },
-    { SpellId = 493, BuffId = 432, BuffName='Temper', Duration = 180 },
-    { SpellId = 107, BuffId = 116, BuffName='Phalanx', Duration = 120 },
-    { SpellId = 109, BuffId = 43, BuffName='Refresh', Duration = 150 },
+    { SpellId = 57, BuffId = 33, BuffName = 'Haste', Duration = 180 },
+    { SpellId = 511, BuffId = 33, BuffName = 'Haste II', Duration = 180 },
+    { SpellId = 107, BuffId = 116, BuffName = 'Phalanx', Duration = 120 },
+    { SpellId = 109, BuffId = 43, BuffName = 'Refresh', Duration = 150 },
+    { SpellId = 473, BuffId = 43, BuffName = 'Refresh II', Duration = 150 },
+    { SpellId = 894, BuffId = 43, BuffName = 'Refresh III', Duration = 150 },
+    { SpellId = 493, BuffId = 432, BuffName = 'Temper', Duration = 180 },
+    { SpellId = 895, BuffId = 432, BuffName = 'Temper II', Duration = 180 },
 };
 
 --State
@@ -195,7 +199,7 @@ local function CheckStateOnLoad()
 
             for _,spell in ipairs(monitoredSpells) do
                 if buffs:contains(spell.BuffId) then
-                    activeTimers:append({ Name = playerName, Buff=spell.BuffName, Timer = os.clock() + spell.Duration });
+                    activeTimers:append({ Name = playerName, Buff = spell.BuffName, Timer = os.clock() + spell.Duration });
                 end
             end
         end
@@ -260,7 +264,8 @@ local function GetMeritCount(meritId)
     end
     return 0;
 end
-monitoredSpells[2].Duration = GetMeritCount(2310) * 30;
+-- Unneeded phalanx2 logic?
+-- monitoredSpells[2].Duration = GetMeritCount(2310) * 30;
 
 ashita.events.register('load', 'load_cb', function ()
     tracker.font = fonts.new(tracker.settings.font);
