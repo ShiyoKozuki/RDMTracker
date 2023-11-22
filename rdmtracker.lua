@@ -342,7 +342,7 @@ ashita.events.register('d3d_present', 'present_cb', function ()
         settings.save()
     end
 
-    if (mJob == 5) then
+    if (mJob == 5 or mJob == 3) then
         tracker.font.text = GetFontString();
         tracker.font.visible = true;
     else
